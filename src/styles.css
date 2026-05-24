@@ -8,3 +8,7 @@ body {
   "YTLC" 500;
   margin: 0;
 }
+
+body, html {
+  height: 100%;
+}
