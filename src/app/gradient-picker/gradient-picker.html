@@ -1,0 +1,26 @@
+<button
+  ngMenuTrigger
+  #origin
+  #trigger="ngMenuTrigger"
+  [menu]="gradientMenu()" class="menu">
+  <div class="preview" [style.--gradient]="gradientValue()"></div>
+</button>
+<ng-template
+  [cdkConnectedOverlayOpen]="trigger.expanded()"
+  [cdkConnectedOverlay]="{origin, usePopover: 'inline'}"
+  [cdkConnectedOverlayPositions]="[
+    {originX: 'end', originY: 'bottom', overlayX: 'end', overlayY: 'top', offsetY: 4},
+  ]"
+  cdkAttachPopoverAsChild
+>
+  <div ngMenu class="menu" #gradientMenu="ngMenu">
+    <ng-template ngMenuContent>
+      @for (gradient of gradients; track gradient.name) {
+        <div ngMenuItem [value]="gradient.value" (click)="gradientValue.set(gradient.value)">
+          <div class="preview" [style.--gradient]="gradient.value"></div>
+          <span class="label">{{ gradient.name }}</span>
+        </div>
+      }
+    </ng-template>
+  </div>
+</ng-template>

@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--gradient, linear-gradient(135deg, #fdfbf7 0%, #eef5f3 100%));
+  padding: 20px;
+  position: relative;
+}
+
+app-gradient-picker {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
